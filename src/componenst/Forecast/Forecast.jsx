@@ -4,7 +4,7 @@ import { useState,useEffect } from 'react'
 import "./Forecast.css"
 
 const Forecast = () => {
-    const cityName = "Chonburi";
+    const cityName = "London";
     const apiKey = "4af89ad12072525b24f67ffb9d561df4";
     const [forecast,setForecast]=useState([])
     const [dayForeCast,setDayForeCast]=useState([])
@@ -36,14 +36,18 @@ const Forecast = () => {
     }
     console.log("dayforecast2",dayForeCast);
 
+    let covertK =(k)=>{
+      return (k-273.15).toFixed(2)
+    }
+
   return (
-    <div>
+    <div className="forecast_container">
       {dayForeCast.map((e)=>{
           return (
-                <div>
-                  <h1>{date(e.dt_txt)}</h1>
+                <div className="detail_box">
                   <img src={`../../../asset/icons/${e.weather[0].icon}.png`} alt="" />
-                  <h1>{e.main.temp}</h1>
+                  <h1 className="temp">{covertK(e.main.temp)}</h1>
+                  <h1 className="date">{date(e.dt_txt)}</h1>
                 </div>
                 )
       })}

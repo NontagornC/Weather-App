@@ -24,14 +24,26 @@ const Current = () => {
         console.log(error);
     })
   }
+
+  const lastUpdated =(data)=> new Date(data).toLocaleString({
+    timeZone: 'Asia/Bangkok',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  })
+
+  let covertK =(k)=>{
+    return (k-273.15).toFixed(2)
+  }
+
   return (
       <div className="current_contaner">
           <div className="current_header">
             <div className="left">
               <h2>{current.data.name}</h2>
-              <h4>{current.data.dt}</h4>
+              <h4>{lastUpdated(current.data.dt)}</h4>
               <div className="temp_box">
-                <span>{current.data.main.temp}</span>
+                <span>{covertK(current.data.main.temp)}</span>
                 <span>{current.data.weather[0].description.toUpperCase()}</span>
               </div>
             </div>
@@ -43,17 +55,17 @@ const Current = () => {
           <div className="current_detail">
             <div className="detail_box">
               <CiTempHigh/>
-              <h5>{current.data.main.feels_like}</h5>
+              <h5>{covertK(current.data.main.feels_like)}</h5>
               <h6>feel like</h6>
             </div>
             <div className="detail_box">
               <CiCloudSun/>
-              <h5>{current.data.main.temp_max}</h5>
+              <h5>{covertK(current.data.main.temp_max)}</h5>
               <h6>Max-temp</h6>
             </div>
             <div className="detail_box">
               <FaRegSnowflake/>
-              <h5>{current.data.main.temp_min}</h5>
+              <h5>{covertK(current.data.main.temp_min)}</h5>
               <h6>Min-temp</h6>
             </div>
             <div className="detail_box">

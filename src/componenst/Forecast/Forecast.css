@@ -1,0 +1,41 @@
+.forecast_container{
+    position: relative;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    width: 70%;
+    justify-content: center;
+}
+
+.forecast_container>.detail_box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255,255,255,0.3);
+    backdrop-filter: blur(30px);
+}
+
+.forecast_container>.detail_box:nth-child(1){
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.forecast_container>.detail_box:last-child{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+
+.detail_box>img{
+    width: 50px;
+}
+
+.detail_box>.temp{
+    font-size: 30px;
+}
+
+.detail_box>.date{
+    font-size: 22px;
+}
