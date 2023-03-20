@@ -1,1 +1,38 @@
+.App{
+    display: flex;
+    width: 70vw;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    background: #333;
+    color: white;
+    box-sizing: border-box;
+}
 
+.container-input {
+    position: relative;
+    width: 60%;
+    margin: 10px;
+  }
+  
+  .input {
+    width: 100px;
+    padding: 10px 0px 10px 40px;
+    border-radius: 9999px;
+    border: solid 1px #333;
+    transition: all .2s ease-in-out;
+    outline: none;
+    opacity: 0.8;
+  }
+  
+  .container-input svg {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translate(0, -50%);
+  }
+  
+  .input:focus {
+    opacity: 1;
+    width: 100%;
+  }
