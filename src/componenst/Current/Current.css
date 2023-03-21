@@ -15,7 +15,7 @@
     align-items: center;
 }
 .right>img{
-    width: 90%;
+    width: 70%;
 }
 .left{
     width: 60%;
@@ -23,27 +23,32 @@
     flex-direction: column;
 }
 
-.left>h2{
+.left>h2:nth-of-type(1){
     margin: 20px 0;
     font-size: 40px;
 }
 
-.left>h4{
+.left>h2:nth-of-type(2){
+    padding: 0 10px;
+    font-size: 60px;
+    font-weight: 600;
+    margin: 0;
+}
+.left>h4:nth-of-type(1){
     margin: 5px 0;
     font-size: 20px;
+    font-weight: 400;
+    color: rgba(255,255, 255, 0.7);
 }
-
-.temp_box{
-    margin: 20px 0;
-    font-size: 40px;
-    font-weight: 700;
-}
-
-.temp_box>span:nth-child(2){
+.left>h4:nth-of-type(2){
     padding: 0 10px;
     font-size: 30px;
-    font-weight: 600;
+    font-weight: 400;
+    margin: 25px 0 0 0;
+    color: rgba(255,255, 255, 0.7);
 }
+
+
 
 .current_detail{
     display: grid;
@@ -74,6 +79,7 @@
 .detail_box>h5>span{
     font-size: 17px;
     font-weight: 500;
+    color: rgba(255,255, 255, 0.7);
 }
 
 .detail_box>h6{
@@ -83,10 +89,81 @@
 }
 
 
-@media only screen and (max-width: 660px) {
+@media only screen and (max-width: 730px) {
     .current_detail {
-      background-color: blue;
       font-size: 60%;
+    }
+    .current_header{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .left{
+        width: 100%;
+        align-items: center;
+    }
+    .left>h2:nth-of-type(1){
+        margin: 10px 0;
+        font-size: 30px;
+    }
+    
+    .left>h2:nth-of-type(2){
+        padding: 0 10px;
+        font-size: 50px;
+        font-weight: 600;
+        margin: 0;
+    }
+    .left>h4:nth-of-type(1){
+        margin: 5px 0;
+        font-size: 14px;
+        font-weight: 400;
+    }
+    .left>h4:nth-of-type(2){
+        padding: 0 10px;
+        font-size: 20px;
+        font-weight: 400;
+        margin: 5px 0;
+        text-align: center;
+    }
+    .right{
+        width: 100%;
+    }
+    .right>img{
+        width: 60%;
+    }
+
+    
+    .current_detail{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        margin: 25px 0;
+    }
+
+    .detail_box{
+        display: flex;
+        padding: 5px;
+    }
+
+    .detail_box>svg{
+        font-size: 30px;
+    }
+
+    .detail_box>h5{
+        font-size: 15px;
+        font-weight: 700;
+        margin: 10px 0;
+    }
+    .detail_box>h5>span{
+        font-size: 14px;
+    }
+
+    .detail_box>h6{
+        font-size: 15px;
+        margin: 5px 0;
+        }
+    .detail_box:last-child{
+        display: none;
     }
   }
 
