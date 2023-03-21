@@ -82,13 +82,8 @@
     margin: 10px 0;
 }
 
-@media only screen and (max-width: 600px) {
-    .current_detail {
-      background-color: red;
-      font-size: 60%;
-    }
-  }
-@media only screen and (max-width: 900px) {
+
+@media only screen and (max-width: 660px) {
     .current_detail {
       background-color: blue;
       font-size: 60%;

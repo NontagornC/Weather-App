@@ -13,22 +13,24 @@ const Forecast = () => {
      getForeCastData(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`)
     },[])
 
+    useEffect(() => {
+      const dayForeCast2 = [];
+      for (let i = 7; i < forecast.length; i += 8) {
+        dayForeCast2.push(forecast[i]);
+      }
+      setDayForeCast(dayForeCast2);
+    }, [forecast]);
+  
     const getForeCastData = (url) => {
       fetchData(url)
         .then((data) => {
-          setForecast(data.data.list);
-          console.log(data.data.list);
-          var dayForeCast2 = ([])
-          for(let i=7; i < forecast.length ; i+=8){
-            dayForeCast2.push(forecast[i])
-            console.log("test",dayForeCast2);
-          }
-          setDayForeCast(dayForeCast2)
+          setForecast(data.data?.list);
         })
         .catch((error) => {
           console.log(error);
         });
     };
+  
     function date(date){
       let a = date.substring(8,10)
       let b = date.substring(5,7)
@@ -42,12 +44,12 @@ const Forecast = () => {
 
   return (
     <div className="forecast_container">
-      {dayForeCast.map((e)=>{
+      {dayForeCast.length > 0 && dayForeCast.map((e,index)=>{
           return (
-                <div className="detail_box">
-                  <img src={`../../../asset/icons/${e.weather[0].icon}.png`} alt="" />
-                  <h1 className="temp">{covertK(e.main.temp)}</h1>
-                  <h1 className="date">{date(e.dt_txt)}</h1>
+                <div className="detail_box" key={index}>
+                  <img src={`../../../asset/icons/${e.weather[0]?.icon}.png`} alt="" />
+                  <h1 className="temp">{covertK(e.main?.temp)}</h1>
+                  <h1 className="date">{date(e?.dt_txt)}</h1>
                 </div>
                 )
       })}
